@@ -35,6 +35,27 @@ namespace Api.Controllers
             return user;
         }
 
+         [HttpPost("login")]
+        public async Task<ActionResult<AppUser>> Login(LoginDTO loginDTO)
+        {
+           var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginDTO.Username);
+
+           if(user == null) return Unauthorized("Invalid password or name.");
+
+           using var hmac = new HMACSHA512(user.PasswordSalt);
+
+           var passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDTO.Password));
+
+           for (int i = 0; i < passwordHash.Length ; i++)  {
+               if (passwordHash[i] != user.PasswordHash[i])
+               {
+                   return Unauthorized("Invalid password or name.");
+               }
+           }
+
+           return user;
+        }
+
         private async Task<bool> UserIsExist(string username)
         {
             return await _context.Users.AnyAsync(x => x.UserName == username.ToLower());
