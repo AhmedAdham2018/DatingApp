@@ -6,14 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
-import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { MembersListComponent } from './members/members-list/members-list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ListsComponent } from './lists/lists.component';
 import { MembersDetailComponent } from './members/members-detail/members-detail.component';
-import { ToastrModule } from 'ngx-toastr';
+import { SharedModule } from './_moduls/shared.module';
 
 @NgModule({
   declarations: [
@@ -32,12 +31,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    BsDropdownModule.forRoot(),
-    ToastrModule.forRoot(
-      {
-        positionClass: 'toast-bottom-right' 
-      }
-    )
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
