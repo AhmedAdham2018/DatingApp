@@ -10,6 +10,7 @@ namespace Api.Entities
         public string UserName { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public ICollection<Photo> Photos { get; set; }
         public string Interests { get; set; }
         public string LookingFor { get; set; }
         public string Gender { get; set; }  
@@ -20,7 +21,6 @@ namespace Api.Entities
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime LastActive { get; set; } = DateTime.Now;
         public DateTime DateOfBirth { get; set; }
-        public ICollection<Photo> Photos { get; set; }
 
         public int GetAge(){
             return DateOfBirth.CalcAge();

@@ -13,6 +13,7 @@ namespace Api.Extensions
         IConfiguration configuration)
         {
             services.AddScoped<ITokenService , TokenService>();
+            services.AddScoped<IUserRepo , UserRepository>();
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlite(configuration.GetConnectionString("DefaultConnection"));
