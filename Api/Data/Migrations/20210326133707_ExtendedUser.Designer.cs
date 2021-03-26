@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Api.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210325141652_ExtendedAppUser")]
-    partial class ExtendedAppUser
+    [Migration("20210326133707_ExtendedUser")]
+    partial class ExtendedUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
