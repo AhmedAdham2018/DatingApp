@@ -1,1 +1,5 @@
-<p>members-list works!</p>
+<div class="row">
+    <div *ngFor="let member of members" class="col-3">
+        <app-members-card [member]="member" ></app-members-card>
+    </div>
+</div>
