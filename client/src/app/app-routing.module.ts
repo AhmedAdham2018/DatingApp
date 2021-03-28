@@ -9,6 +9,7 @@ import { MembersListComponent } from './members/members-list/members-list.compon
 import { MessagesComponent } from './messages/messages.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
   {path: '' , component: HomeComponent},
@@ -19,13 +20,14 @@ const routes: Routes = [
     children: [
       {path: 'lists' , component: ListsComponent},
       {path: 'members' , component: MembersListComponent},
-      {path: 'members/:id' , component: MembersDetailComponent},
+      {path: 'members/:username' , component: MembersDetailComponent},
       {path: 'messages' , component: MessagesComponent},
     ]
   },
   {path: 'errors' , component: TestErrorsComponent},
   {path: 'not-found' , component: NotFoundComponent},
   {path: 'server-error' , component: ServerErrorComponent},
+  {path: 'about-us' , component: AboutUsComponent},
   {path: '**' , component: NotFoundComponent , pathMatch: 'full'}
 ];
 
