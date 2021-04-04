@@ -11,6 +11,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { AuthGuard } from './_guards/auth.guard';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { MembersEditComponent } from './members/members-edit/members-edit.component';
+import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 
 const routes: Routes = [
   {path: '' , component: HomeComponent},
@@ -21,7 +22,7 @@ const routes: Routes = [
     children: [
       {path: 'lists' , component: ListsComponent},
       {path: 'members' , component: MembersListComponent},
-      {path: 'member/edit' , component: MembersEditComponent},
+      {path: 'member/edit' , component: MembersEditComponent , canDeactivate: [PreventUnsavedChangesGuard]},
       {path: 'members/:username' , component: MembersDetailComponent},
       {path: 'messages' , component: MessagesComponent},
     ]
