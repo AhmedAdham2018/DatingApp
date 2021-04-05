@@ -21,6 +21,8 @@ import { MembersCardComponent } from './members/members-card/members-card.compon
 import { AboutUsComponent } from './about-us/about-us.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { MembersEditComponent } from './members/members-edit/members-edit.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -45,8 +47,10 @@ import { MembersEditComponent } from './members/members-edit/members-edit.compon
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgxSpinnerModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     {provide: HTTP_INTERCEPTORS , useClass: ErrorInterceptor , multi: true},
     {provide: HTTP_INTERCEPTORS , useClass: JwtInterceptor , multi: true}
