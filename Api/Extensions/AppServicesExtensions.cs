@@ -13,6 +13,7 @@ namespace Api.Extensions
         public static IServiceCollection AddAppServices(this IServiceCollection services,
         IConfiguration configuration)
         {
+            services.Configure<CloudinarySettings>(configuration.GetSection("CloudinarySettings"));
             services.AddScoped<ITokenService , TokenService>();
             services.AddScoped<IUserRepo , UserRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);

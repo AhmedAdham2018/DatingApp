@@ -5,7 +5,7 @@
     <div class="col-7">
         <div class="alert alert-info" *ngIf="editForm.dirty">
             <strong>Information: </strong>
-            Any unsaved changes will be lost.
+            unsaved changes will be lost.
         </div>
     </div>
     <div class="col-5">
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" disabled="!editForm.dirty" form="editForm" class="btn btn-info btn-block">Save</button>
+                <button type="submit" [disabled]="!editForm.dirty" form="editForm" class="btn btn-info btn-block">Save</button>
             </div>     
         </div>
     </div>

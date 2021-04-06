@@ -20,6 +20,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { MembersCardComponent } from './members/members-card/members-card.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { MembersEditComponent } from './members/members-edit/members-edit.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -53,7 +54,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     {provide: HTTP_INTERCEPTORS , useClass: ErrorInterceptor , multi: true},
-    {provide: HTTP_INTERCEPTORS , useClass: JwtInterceptor , multi: true}
+    {provide: HTTP_INTERCEPTORS , useClass: JwtInterceptor , multi: true},
+    {provide: HTTP_INTERCEPTORS , useClass: LoadingInterceptor , multi: true}
   ],
   bootstrap: [AppComponent]
 })
